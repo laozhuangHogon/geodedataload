@@ -1,0 +1,36 @@
+attributes:
+    list:
+        historyRate: report_date,ap_match,ap_resolution,payment_match,payment_resolution,book_mailroom,book_vendor,book_epayment,payment_mailroom,payment_vendor,payment_epayment,aff_company
+file:
+    input:
+        csvName:
+            historyRate: history_rate.csv
+logging:
+    level:
+        io:
+            pivotal:
+                cso:
+                    loaddata: DEBUG
+        org:
+            springframework:
+                boot:
+                    actuate:
+                        audit:
+                            listener:
+                                AuditListener: DEBUG
+                security: INFO
+    file: logs/dev_app.log
+    pattern:
+      console: "%d %-5level %logger : %msg%n"
+      file: "%d %-5level [%thread] %logger : %msg%n"
+spring:
+    batch:
+        chunk:
+            control: 1000
+        initializer:
+            enabled: true
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: gpus321
+        url: jdbc:postgresql://3.102.192.102:5432/gemfire
+        username: gpus

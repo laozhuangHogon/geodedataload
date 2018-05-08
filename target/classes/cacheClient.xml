@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE client-cache PUBLIC
+    "-//GemStone Systems, Inc.//GemFire Declarative Caching 8.0//EN"
+    "http://www.gemstone.com/dtd/cache8_0.dtd">
+<client-cache copy-on-read="false">
+
+	<pool name="client" subscription-enabled="true"
+		max-connections="100" pr-single-hop-enabled="false">
+		<locator host="127.0.0.1" port="50001" />
+		<locator host="127.0.0.1" port="50002" />
+	</pool>
+	<region name="historyRate">
+		<region-attributes refid="CACHING_PROXY">
+		</region-attributes>
+	</region>
+	<region name="region_PT_Test2" >
+		<region-attributes refid="CACHING_PROXY">
+		</region-attributes>
+	</region>
+
+</client-cache>
